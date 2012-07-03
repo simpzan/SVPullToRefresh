@@ -284,7 +284,7 @@ typedef NSUInteger SVPullToRefreshState;
     if(pullToRefreshActionHandler) {
         if (self.state == SVPullToRefreshStateLoading) {
             CGFloat offset = MAX(self.scrollView.contentOffset.y * -1, 0);
-            offset = MIN(offset, 60.0f);
+            offset = MIN(offset, originalScrollViewContentInset.top + 60.0f);
             self.scrollView.contentInset = UIEdgeInsetsMake(offset, 0.0f, 0.0f, 0.0f);
         } else {
             CGFloat scrollOffsetThreshold = self.frame.origin.y-self.originalScrollViewContentInset.top;
